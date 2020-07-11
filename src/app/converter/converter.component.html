@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="card-group">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted" *ngIf="description" >{{description}}</h6>
+        <form>
+          <div class="form-row align-items-center">
+            <div class="col-auto my-1">
+              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" 
+                (change)="getRates(1)" [(ngModel)]="from" name="from">
+                <option *ngFor="let item of countries" [value]="item">{{item}}</option>
+              </select>
+            </div>
+            <div class="col-auto my-1" ></div>
+            <div class="col-auto my-1" ></div>
+            <div class="col-auto my-1" ></div>
+            <div class="col-auto my-1">
+              <label for="cash" class="sr-only"></label>
+              <input type="number" class="form-control" id="cash" name="fromVal" [(ngModel)]="fromVal" (ngModelChange)="getRates(1)" (keyUp)="getRates(1)">
+            </div>
+          </div>
+          <div class="form-row align-items-center">
+            <div class="col-auto my-1">
+              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect"
+              (change)="getRates(2)" [(ngModel)]="to" name="to">
+                <option *ngFor="let item of countries" [value]="item">{{item}}</option>
+              </select>
+            </div>
+            <div class="col-auto my-1" ></div>
+            <div class="col-auto my-1" ></div>
+            <div class="col-auto my-1" ></div>
+            <div class="col-auto my-1">
+              <label for="cash1" class="sr-only"></label>
+              <input type="number" class="form-control" id="cash1" name="toVal" [(ngModel)]="toVal" (keyup)="getRates(2)" (ngModelChange)="getRates(2)" placeholder="">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Historical Trend</h5>
+        <h6 class="card-subtitle mb-2 text-muted" *ngIf="message">{{message}}</h6>
+        <div id="chartContainer" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;"></div>
+      </div>
+    </div>
+  </div>
+</div>
